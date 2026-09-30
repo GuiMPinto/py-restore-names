@@ -25,9 +25,7 @@ def test_restore_first_names_no_need():
     assert users[0]["first_name"] == "Mike"
 
 
-def test_restore_names_with_list_empty():
-    users = [
-        {}
-    ]
-    restore_names(users)
-    assert users[] == None
+def test_restore_names_with_empty_list():
+    users = []
+    restore_names(users)  # deve funcionar sem erro
+    assert users == []
