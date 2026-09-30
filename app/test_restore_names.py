@@ -1,4 +1,33 @@
 import pytest
 from app.restore_names import restore_names
 
-# write your tests here
+def test_restore_names_with_none():
+    users = [
+        {"first_name": None, "full_name": "Jack Holy"}
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == "Jack"
+
+
+def test_restore_names_with_key_first_name():
+    users = [
+        {"full_name": "Mike Adams"}
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == "Mike"
+
+
+def test_restore_first_names_no_need():
+    users = [
+        {"first_name": "Mike", "last_name": "Adams","full_name": "Mike Adams"}
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == "Mike"
+
+
+def test_restore_names_with_list_empty():
+    users = [
+        {}
+    ]
+    restore_names(users)
+    assert users[] == None
